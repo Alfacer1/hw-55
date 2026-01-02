@@ -32,17 +32,13 @@
 
 import { writeFile, readFile, unlink } from 'fs/promises';
 
-/**
- * #1: Запис файлу
- * Тест task1 очікує: повернення самого об'єкта помилки.
- */
 export async function writeFileAsync(filename, content) {
   try {
     await writeFile(filename, content);
     console.log('Файл успішно записано');
   } catch (error) {
     console.error('Помилка при записі файлу:', error);
-    return error; // Необхідно для expect(result).toBe(error) у task1
+    return error; 
   }
 }
 
@@ -96,7 +92,7 @@ export async function readFileAsync(filename) {
     } else {
       console.error('Помилка при читанні файлу:', error);
     }
-    return null; // Необхідно для expect(content).toBeNull() у task2
+    return null;
   }
 }
 
@@ -157,7 +153,6 @@ export async function deleteFileAsync(filename) {
     } else {
       console.error('Помилка при видаленні файлу:', error);
     }
-    // Тест не перевіряє повернене значення, але повертаємо null для одностайності
     return null;
   }
 }
